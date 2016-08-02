@@ -16,14 +16,14 @@ public class Average {
             a = sc.nextInt();
             b = sc.nextInt();
 
-            double c = average(a, b);
+            int c = average(a, b);
             System.out.println("Average between " + a + " and " + b + " is " + c);
         } catch (InputMismatchException e) {
             System.out.println("Please make sure you enter integer numbers");
         }
     }
 
-    private static double average(int a, int b) {
+    private static int average(int a, int b) {
         return (a + b) / 2;
     }
 }
