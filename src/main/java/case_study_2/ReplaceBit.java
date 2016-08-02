@@ -2,15 +2,15 @@ package case_study_2;
 
 public class ReplaceBit {
     public static void main(String[] args) {
-        int decimal = 8;
+        int decimal = 444;
         String binary = Integer.toBinaryString(decimal);
-        int bitToReplace = 2; // should be not bigger than binary.length - 1
+        int bitToReplace = 5; // should be not bigger than binary.length - 1
 
         System.out.println("the decimal number " + decimal + " is binary " + binary);
 
         String binaryAfterReplace = replaceBit(binary, bitToReplace);
 
-        if (binaryAfterReplace.equals(String.valueOf(binary))) {
+        if (binaryAfterReplace.equals(binary)) {
             System.out.println("the mentioned bit is zero, nothing to replace");
         } else {
             int decimalAfterReplace = convertToDecimal(binaryAfterReplace);
@@ -21,19 +21,15 @@ public class ReplaceBit {
     }
 
     private static String replaceBit(String inBinary, int bitToReplace) {
-        String afterReplace = "";
+        char[] bits = inBinary.toCharArray();
 
-        for (int i = 0; i < inBinary.length(); i++) {
-            char c = inBinary.charAt(i);
-            int j = Character.getNumericValue(c);
-
-            if (i == (bitToReplace - 1) & j == 1) {
-                j = 0;
-            }
-
-            afterReplace += j;
+        if (bitToReplace >= 1 & bitToReplace < inBinary.length()) {
+            bits[bitToReplace - 1] = '0';
         }
-        return afterReplace;
+
+        inBinary = String.valueOf(bits);
+
+        return inBinary;
     }
 
     private static int convertToDecimal(String binary) {
