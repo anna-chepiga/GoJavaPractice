@@ -3,14 +3,14 @@ package case_study_2;
 import java.util.ArrayList;
 
 public class HexatridecimalNotation {
-    private static final ArrayList<Character> alphabet = new ArrayList<>();
+    private static final ArrayList<Character> ALPHABET = new ArrayList<>();
 
     static {
         for (char c = '0'; c <= '9'; c++) {
-            alphabet.add(c);
+            ALPHABET.add(c);
         }
         for (char c = 'A'; c <= 'Z'; c++) {
-            alphabet.add(c);
+            ALPHABET.add(c);
         }
     }
 
@@ -42,7 +42,7 @@ public class HexatridecimalNotation {
             integer = sum / BASE;
             remainder = sum % BASE;
 
-            char include = alphabet.get(remainder);
+            char include = ALPHABET.get(remainder);
             sumIn36.add(0, include);
 
             sum = integer;
@@ -57,7 +57,7 @@ public class HexatridecimalNotation {
 
         for (int i = 0; i < numberInChars.length; i++) {
             char element = numberInChars[size - 1];
-            int index = alphabet.indexOf(element);
+            int index = ALPHABET.indexOf(element);
             int inAlphabet = (int) Math.pow(BASE, i) * index;
             numberIn10 = numberIn10 + inAlphabet;
             size--;
