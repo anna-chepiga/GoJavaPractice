@@ -17,37 +17,37 @@ public class HexatridecimalNotation {
     private static final int BASE = 36;
 
     public static void main(String[] args) {
-        String firstNumberIn36 = "UU71O";
+        String firstNumberIn36 = "ZZ";
         int firstNumberIn10 = convertTo10(firstNumberIn36);
         System.out.println("number " + firstNumberIn36 + " in hexatridecimal notation is " + firstNumberIn10 + " in decimal notation");
 
-        String secondNumberIn36 = "13N0";
+        String secondNumberIn36 = "ZZ";
         int secondNumberIn10 = convertTo10(secondNumberIn36);
         System.out.println("number " + secondNumberIn36 + " in hexatridecimal notation is " + secondNumberIn10 + " in decimal notation");
 
         int sum = firstNumberIn10 + secondNumberIn10;
         System.out.println("their sum in decimal notation is " + sum);
 
-        ArrayList<Character> sumIn36 = convertTo36(sum);
-        System.out.print("their sum in hexatridecimal notation is " + sumIn36.toString());
+        String sumIn36 = convertTo36(sum);
+        System.out.print("their sum in hexatridecimal notation is " + sumIn36);
     }
 
-    private static ArrayList<Character> convertTo36(int sum) {
+    private static String convertTo36(int sum) {
         int integer;
         int remainder;
 
-        ArrayList<Character> sumIn36 = new ArrayList<>();
+        StringBuilder sumIn36 = new StringBuilder();
 
         do {
             integer = sum / BASE;
             remainder = sum % BASE;
 
             char include = ALPHABET.get(remainder);
-            sumIn36.add(0, include);
+            sumIn36.append(include);
 
             sum = integer;
         } while (integer != 0);
-        return sumIn36;
+        return sumIn36.reverse().toString();
     }
 
     private static int convertTo10(String numberIn36) {

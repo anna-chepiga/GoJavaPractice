@@ -1,14 +1,12 @@
 package case_study_2;
 
-import java.util.ArrayList;
-
 public class AmountOfBits {
     public static void main(String[] args) {
         int inDecimal = 842;
 
-        ArrayList<Integer> inBinary = convertToBinary(inDecimal);
+        String inBinary = convertToBinary(inDecimal);
 
-        System.out.println("decimal: " + inDecimal + ", binary: " + inBinary.toString());
+        System.out.println("decimal: " + inDecimal + ", binary: " + inBinary);
 
         int amountOfBits = countBits(inBinary);
 
@@ -16,28 +14,29 @@ public class AmountOfBits {
 
     }
 
-    private static ArrayList<Integer> convertToBinary(int inDecimal) {
+    private static String convertToBinary(int inDecimal) {
         int integer;
         int remainder;
 
-        ArrayList<Integer> inBinary = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
 
         do {
             integer = inDecimal / 2;
             remainder = inDecimal % 2;
 
-            inBinary.add(0, remainder);
+            sb.append(remainder);
 
             inDecimal = integer;
 
         } while (integer != 0);
-        return inBinary;
+        return sb.reverse().toString();
     }
 
-    private static int countBits(ArrayList<Integer> inBinary) {
+    private static int countBits(String inBinary) {
+        char[] bits = inBinary.toCharArray();
         int count = 0;
-        for (Integer element : inBinary) {
-            if (element == 1)
+        for (Character element : bits) {
+            if (element == '1')
                 count++;
         }
         return count;
