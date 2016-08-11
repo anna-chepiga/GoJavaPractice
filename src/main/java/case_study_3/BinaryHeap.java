@@ -1,6 +1,7 @@
 package case_study_3;
 
 import java.util.Arrays;
+import java.util.NoSuchElementException;
 
 public class BinaryHeap {
     private int[] heap;
@@ -28,6 +29,10 @@ public class BinaryHeap {
     }
 
     private int poll() {
+        if (heap.length == 0) {
+            throw new NoSuchElementException();
+        }
+
         int max = heap[0];
         heap[0] = heap[heap.length - 1];
         heap = Arrays.copyOf(heap, heap.length - 1);
@@ -74,16 +79,16 @@ public class BinaryHeap {
 
         newHeap.heap = new int[]{20, 11, 15, 6, 9, 7, 8, 1, 3, 5};
 
-        System.out.println(Arrays.toString(newHeap.heap));
+        System.out.println("initial heap: " + Arrays.toString(newHeap.heap));
 
         newHeap.insert(17);
 
-        System.out.println(Arrays.toString(newHeap.heap));
+        System.out.println("after insert: " + Arrays.toString(newHeap.heap));
 
         int max = newHeap.poll();
 
         System.out.println("result of poll is: " + max);
 
-        System.out.println(Arrays.toString(newHeap.heap));
+        System.out.println("after poll: " + Arrays.toString(newHeap.heap));
     }
 }
