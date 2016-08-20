@@ -1,6 +1,6 @@
 package case_study_4;
 
-public class StringNumbers2 {
+public class StringToNumbers {
     public static void main(String[] args) {
         String sFloat = "3.4E+3F";
         String s16 = "0x55";
