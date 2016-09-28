@@ -17,11 +17,11 @@ public class HexatridecimalNotation {
     private static final int BASE = 36;
 
     public static void main(String[] args) {
-        String firstNumberIn36 = "ZZ";
+        String firstNumberIn36 = "uk8".toUpperCase();
         int firstNumberIn10 = convertTo10(firstNumberIn36);
         System.out.println("number " + firstNumberIn36 + " in hexatridecimal notation is " + firstNumberIn10 + " in decimal notation");
 
-        String secondNumberIn36 = "ZZ";
+        String secondNumberIn36 = "oLn3".toUpperCase();
         int secondNumberIn10 = convertTo10(secondNumberIn36);
         System.out.println("number " + secondNumberIn36 + " in hexatridecimal notation is " + secondNumberIn10 + " in decimal notation");
 
