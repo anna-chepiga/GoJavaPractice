@@ -23,7 +23,7 @@ public class ReplaceBit {
     private static String replaceBit(String inBinary, int bitToReplace) {
         char[] bits = inBinary.toCharArray();
 
-        if (bitToReplace >= 1 & bitToReplace < inBinary.length()) {
+        if (bitToReplace >= 1 && bitToReplace < inBinary.length()) {
             bits[bitToReplace - 1] = '0';
         }
 
